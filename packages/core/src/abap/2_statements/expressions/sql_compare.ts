@@ -2,7 +2,7 @@ import {ver, seq, optPrio, altPrio, Expression, plusPrio, tok, AlsoIn} from "../
 import {SQLSource, SQLFieldName, SQLAliasField, Dynamic, SQLIn, SQLCompareOperator, SQLFunction, SQLAggregation, SQLCase, Source, SimpleSource3, SQLPathForColumn, ConstantString} from ".";
 import {Release} from "../../../version";
 import {IStatementRunnable} from "../statement_runnable";
-import {ParenLeftW, WAt, WParenRightW} from "../../1_lexer/tokens";
+import {ParenLeftW, WAt, WDashW, WParenRightW} from "../../1_lexer/tokens";
 import {SQLSetOpGroup} from "./sql_set_op_group";
 import {buildSelectCore} from "./_select_core";
 import {SQLLikeRegexpr} from "./sql_like_regexpr";
@@ -23,7 +23,8 @@ export class SQLCompare extends Expression {
 
     const source = new SQLSource();
 
-    const arith = ver(Release.v750, plusPrio(seq(altPrio("+", "-", "*", "/"), SQLFieldName)), {also: AlsoIn.OpenABAP});
+    // A minus with blanks around it (WDashW): a "-" with no blank is the component selector of the operand before it.
+    const arith = ver(Release.v750, plusPrio(seq(altPrio("+", tok(WDashW), "*", "/"), SQLFieldName)), {also: AlsoIn.OpenABAP});
 
     const paren = seq(tok(ParenLeftW), Source, tok(WParenRightW));
     const at = ver(Release.v740sp05, seq(tok(WAt), altPrio(SimpleSource3, paren)), {also: AlsoIn.OpenABAP});
