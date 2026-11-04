@@ -1,9 +1,9 @@
 {
-    "name": "@abaplint/core",
-    "version": "2.120.4",
+    "name": "@sooktiai/abaplint-core",
+    "version": "2.120.11",
     "description": "abaplint - Core API",
     "main": "build/src/index.js",
-    "typings": "build/abaplint.d.ts",
+    "typings": "build/src/index.d.ts",
     "funding": "https://github.com/sponsors/larshp",
     "scripts": {
         "lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\"",

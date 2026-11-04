@@ -8,7 +8,6 @@ adhoc/*
 api-extractor.json
 build/*.tsbuildinfo
 build/scripts/*
-build/src/**/*.d.ts
 build/test/*
 build/adhoc/*
 build/tsdoc-metadata.json
