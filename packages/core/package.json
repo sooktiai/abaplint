@@ -70,6 +70,7 @@
     "vscode-languageserver-types": "^3.18.0"
   },
   "overrides": {
-    "minimatch": "11.0.9"
+    "minimatch": "11.0.9",
+    "glob": "14.0.6"
   }
 }
