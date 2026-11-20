@@ -15,12 +15,15 @@
     "@types/node": "^25.9.3",
     "buffer": "^6.0.3",
     "fuse.js": "=7.1.0",
-    "monaco-editor": "^0.55.1",
+    "monaco-editor": "^0.57.0",
     "ts-loader": "^9.6.0",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3",
     "webpack": "^5.107.2",
     "webpack-cli": "^7.0.3",
     "yaserver": "^0.4.0"
+  },
+  "overrides": {
+    "dompurify": "3.4.18"
   }
 }
